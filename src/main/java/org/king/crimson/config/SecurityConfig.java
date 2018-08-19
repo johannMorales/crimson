@@ -1,8 +1,8 @@
 package org.king.crimson.config;
 
 import org.king.crimson.security.CustomUserDetailsService;
-import org.king.crimson.security.JwtAuthenticationEntryPoint;
-import org.king.crimson.security.JwtAuthenticationFilter;
+import org.king.crimson.security.jwt.JwtAuthenticationEntryPoint;
+import org.king.crimson.security.jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

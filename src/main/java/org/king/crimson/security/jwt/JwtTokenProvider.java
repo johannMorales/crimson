@@ -1,4 +1,4 @@
-package org.king.crimson.security;
+package org.king.crimson.security.jwt;
 
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import org.king.crimson.model.security.UserPrincipal;
 
-/**
- * Created by rajeevkumarsingh on 19/08/17.
- */
 @Component
 public class JwtTokenProvider {
 

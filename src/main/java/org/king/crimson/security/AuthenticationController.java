@@ -1,8 +1,9 @@
 package org.king.crimson.security;
 
 
+import org.king.crimson.security.jwt.JwtTokenProvider;
 import org.king.crimson.zelpers.response.ApiResponse;
-import org.king.crimson.zelpers.response.JwtAuthenticationResponse;
+import org.king.crimson.security.jwt.JwtAuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

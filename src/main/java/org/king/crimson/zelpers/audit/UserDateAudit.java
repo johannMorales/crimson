@@ -1,14 +1,11 @@
 package org.king.crimson.zelpers.audit;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
 import javax.persistence.MappedSuperclass;
-
-/**
- * Created by rajeevkumarsingh on 19/08/17.
- */
 
 @MappedSuperclass
 @JsonIgnoreProperties(
@@ -17,9 +14,11 @@ import javax.persistence.MappedSuperclass;
 )
 public abstract class UserDateAudit extends DateAudit {
 
+    @JsonIgnore
     @CreatedBy
     private Long createdBy;
 
+    @JsonIgnore
     @LastModifiedBy
     private Long updatedBy;
 

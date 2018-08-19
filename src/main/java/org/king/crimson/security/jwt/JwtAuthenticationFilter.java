@@ -1,4 +1,4 @@
-package org.king.crimson.security;
+package org.king.crimson.security.jwt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import org.king.crimson.security.CustomUserDetailsService;
 
-/**
- * Created by rajeevkumarsingh on 19/08/17.
- */
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
