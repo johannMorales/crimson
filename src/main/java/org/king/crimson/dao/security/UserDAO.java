@@ -1,10 +1,14 @@
 package org.king.crimson.dao.security;
 
 import org.king.crimson.model.security.User;
-import pe.albatross.octavia.easydao.EasyDAO;
+import org.king.crimson.zelpers.dao.EzDAO;
 
-public interface UserDAO extends EasyDAO<User>{
+public interface UserDAO extends EzDAO<User> {
 
-    public User findByUsernameOrEmail(String usernameOrEmail);
-    
+    User findByUsernameOrEmail(String usernameOrEmail);
+
+    User findByUsername(String username);
+
+    User findByEmail(String email);
+
 }

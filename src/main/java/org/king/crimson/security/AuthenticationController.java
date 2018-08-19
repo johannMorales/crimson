@@ -1,6 +1,5 @@
 package org.king.crimson.security;
 
-
 import org.king.crimson.security.jwt.JwtTokenProvider;
 import org.king.crimson.zelpers.response.ApiResponse;
 import org.king.crimson.security.jwt.JwtAuthenticationResponse;
@@ -52,7 +51,7 @@ public class AuthenticationController {
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         
-        User result = service.register(signUpRequest);
+        User result = service.signup(signUpRequest);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentContextPath().path("/users/{username}")

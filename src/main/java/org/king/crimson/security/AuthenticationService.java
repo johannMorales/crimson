@@ -4,5 +4,5 @@ import org.king.crimson.model.security.User;
 
 public interface AuthenticationService {
     
-    User register(SignUpRequest request);
+    User signup(SignUpRequest request);
 }
