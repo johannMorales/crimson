@@ -1,23 +1,24 @@
 package org.king.crimson.controller.security.users;
 
-import org.king.crimson.model.security.User;
+import org.king.crimson.security.DataSession;
+import org.king.crimson.security.CurrentUser;
+import org.king.crimson.zelpers.response.UserSummary;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/as/usuarios")
+@RequestMapping("/users")
 public class UserController {
-    
+
     @GetMapping("/me")
-    public User findMe(){
-        User u =new User();
+    @PreAuthorize("hasRole('USER')")
+    public UserSummary getCurrentUser(@CurrentUser DataSession currentUser) {
+        UserSummary userSummary = new UserSummary(currentUser.getId(), currentUser.getUsername(), currentUser.getName());
         
-        u.setName("hola");
-        u.setUsername("superhola");
-        u.setPassword("holahola");
-        
-        return u;
+
+        return userSummary;
     }
-    
+
 }

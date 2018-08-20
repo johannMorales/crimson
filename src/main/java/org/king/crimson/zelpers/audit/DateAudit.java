@@ -1,6 +1,5 @@
 package org.king.crimson.zelpers.audit;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -19,11 +18,9 @@ import java.time.Instant;
 )
 public abstract class DateAudit implements Serializable {
 
-    @JsonIgnore
     @CreatedDate
     private Instant createdAt;
 
-    @JsonIgnore
     @LastModifiedDate
     private Instant updatedAt;
 

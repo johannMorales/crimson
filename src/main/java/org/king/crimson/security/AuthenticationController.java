@@ -20,7 +20,7 @@ import java.net.URI;
 import org.king.crimson.model.security.User;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthenticationController {
 
     @Autowired

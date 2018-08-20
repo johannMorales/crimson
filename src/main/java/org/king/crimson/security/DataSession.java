@@ -1,4 +1,4 @@
-package org.king.crimson.model.security;
+package org.king.crimson.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,8 +9,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import lombok.ToString;
+import org.king.crimson.model.security.User;
 
-public class UserPrincipal implements UserDetails {
+@ToString
+public class DataSession implements UserDetails {
     private Long id;
 
     private String name;
@@ -25,7 +28,7 @@ public class UserPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id, String name, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public DataSession(Long id, String name, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -34,12 +37,12 @@ public class UserPrincipal implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserPrincipal create(User user) {
+    public static DataSession create(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role ->
                 new SimpleGrantedAuthority(role.getName().name())
         ).collect(Collectors.toList());
 
-        return new UserPrincipal(
+        return new DataSession(
                 user.getId(),
                 user.getName(),
                 user.getUsername(),
@@ -100,7 +103,7 @@ public class UserPrincipal implements UserDetails {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserPrincipal that = (UserPrincipal) o;
+        DataSession that = (DataSession) o;
         return Objects.equals(id, that.id);
     }
 

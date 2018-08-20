@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
-import org.king.crimson.model.security.UserPrincipal;
+import org.king.crimson.security.DataSession;
 
 @Component
 public class JwtTokenProvider {
@@ -23,7 +23,7 @@ public class JwtTokenProvider {
 
     public String generateToken(Authentication authentication) {
 
-        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        DataSession userPrincipal = (DataSession) authentication.getPrincipal();
 
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);

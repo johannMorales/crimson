@@ -8,7 +8,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import java.util.Optional;
-import org.king.crimson.model.security.UserPrincipal;
+import org.king.crimson.security.DataSession;
 
 @Configuration
 @EnableJpaAuditing
@@ -32,7 +32,7 @@ class SpringSecurityAuditAwareImpl implements AuditorAware<Long> {
             return Optional.empty();
         }
 
-        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        DataSession userPrincipal = (DataSession) authentication.getPrincipal();
 
         return Optional.ofNullable(userPrincipal.getId());
     }
